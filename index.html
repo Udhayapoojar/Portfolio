@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Udaya Pooja - Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-900 text-gray-200 font-sans">
+  <!-- Header -->
+  <header class="bg-gray-800 sticky top-0 z-10">
+    <div class="container mx-auto flex justify-between items-center px-6 py-4">
+      <h1 class="text-2xl font-bold text-blue-400">Udaya Pooja</h1>
+      <nav>
+        <ul class="flex space-x-6">
+          <li><a href="#about" class="hover:text-blue-400">About</a></li>
+          <li><a href="#skills" class="hover:text-blue-400">Skills</a></li>
+          <li><a href="#projects" class="hover:text-blue-400">Projects</a></li>
+          <li><a href="#contact" class="hover:text-blue-400">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="bg-gradient-to-br from-gray-800 to-black text-center py-20">
+    <h2 class="text-4xl font-bold mb-6">Hi, I'm <span class="text-blue-400">Udaya Pooja</span></h2>
+    <p class="text-gray-400 text-lg mb-8">Aspiring Software Developer | BE CSE '25 | Full-Stack Enthusiast</p>
+    <a href="#contact" class="bg-blue-500 hover:bg-blue-600 text-white py-3 px-6 rounded transition duration-300">Get in Touch</a>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="py-16">
+    <div class="container mx-auto px-6">
+      <h2 class="text-3xl font-bold text-center mb-8">About Me</h2>
+      <p class="text-gray-400 text-center max-w-2xl mx-auto">I am Udaya Pooja, a BE CSE student graduating in 2025. I love designing scalable applications and working with cutting-edge technologies to solve real-world problems.</p>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="bg-gray-800 py-16">
+    <div class="container mx-auto px-6">
+      <h2 class="text-3xl font-bold text-center mb-8 text-blue-400">Skills</h2>
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6 text-center">
+        <span class="bg-gray-700 p-4 rounded shadow hover:bg-gray-600">React</span>
+        <span class="bg-gray-700 p-4 rounded shadow hover:bg-gray-600">Node.js</span>
+        <span class="bg-gray-700 p-4 rounded shadow hover:bg-gray-600">MongoDB</span>
+        <span class="bg-gray-700 p-4 rounded shadow hover:bg-gray-600">Next.js</span>
+        <span class="bg-gray-700 p-4 rounded shadow hover:bg-gray-600">Tailwind CSS</span>
+        <span class="bg-gray-700 p-4 rounded shadow hover:bg-gray-600">MySQL</span>
+        <span class="bg-gray-700 p-4 rounded shadow hover:bg-gray-600">Embedded C</span>
+        <span class="bg-gray-700 p-4 rounded shadow hover:bg-gray-600">Bootstrap</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="py-16">
+    <div class="container mx-auto px-6">
+      <h2 class="text-3xl font-bold text-center mb-8">Projects</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="bg-gray-800 p-6 rounded shadow hover:shadow-lg">
+          <h3 class="text-xl font-bold text-blue-400 mb-2">Trading Website</h3>
+          <p class="text-gray-400">Built using Tailwind CSS.</p>
+        </div>
+        <div class="bg-gray-800 p-6 rounded shadow hover:shadow-lg">
+          <h3 class="text-xl font-bold text-blue-400 mb-2">NEET Academy Website</h3>
+          <p class="text-gray-400">Frontend & backend development.</p>
+        </div>
+        <div class="bg-gray-800 p-6 rounded shadow hover:shadow-lg">
+          <h3 class="text-xl font-bold text-blue-400 mb-2">Smart Home App</h3>
+          <p class="text-gray-400">Automated light on/off functionality.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="bg-gray-800 py-16">
+    <div class="container mx-auto px-6">
+      <h2 class="text-3xl font-bold text-center text-blue-400 mb-8">Contact Me</h2>
+      <form id="contactForm" class="max-w-md mx-auto bg-gray-700 p-6 rounded">
+        <div class="mb-4">
+          <input type="text" id="name" placeholder="Your Name" class="w-full p-3 bg-gray-800 border border-gray-600 rounded text-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500">
+        </div>
+        <div class="mb-4">
+          <input type="email" id="email" placeholder="Your Email" class="w-full p-3 bg-gray-800 border border-gray-600 rounded text-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500">
+        </div>
+        <div class="mb-4">
+          <textarea id="message" placeholder="Your Message" rows="4" class="w-full p-3 bg-gray-800 border border-gray-600 rounded text-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+        </div>
+        <button type="button" id="submitButton" class="bg-blue-500 text-white py-2 px-4 rounded w-full hover:bg-blue-600 transition duration-300">Send</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 py-4 text-center text-gray-400">
+    <p>&copy; 2024 Udaya Pooja. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
