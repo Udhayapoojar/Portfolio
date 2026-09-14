@@ -49,13 +49,43 @@ export default async function CaseStudy({
           <div className="mt-14 grid gap-8 lg:grid-cols-[8rem_minmax(0,1fr)]">
             <p className="font-mono text-sm text-muted-foreground">{number}</p>
             <div>
-              <p className="eyebrow text-primary">{project.category}</p>
+              <p className="eyebrow text-primary">
+                {project.category.includes('Neural Schema Pvt. Ltd.') ? (
+                  <>
+                    Professional Application ·{' '}
+                    <a
+                      href="https://neuralschemait.com/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="underline decoration-primary/40 underline-offset-2 hover:decoration-primary hover:text-primary transition-colors inline-flex items-center gap-0.5"
+                    >
+                      <span>Neural Schema Pvt. Ltd.</span>
+                      <ArrowUpRight className="size-2.5 inline" aria-hidden="true" />
+                    </a>
+                  </>
+                ) : (
+                  project.category
+                )}
+              </p>
               <h1 className="editorial-title mt-4 max-w-4xl text-4xl sm:text-6xl text-balance">
                 {project.title}
               </h1>
               <p className="mt-6 max-w-2xl text-lg leading-8 text-muted-foreground">
                 {project.description}
               </p>
+              {project.liveUrl && (
+                <div className="mt-6 flex flex-wrap items-center gap-4">
+                  <a
+                    href={project.liveUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 rounded-xs bg-primary px-4 py-2 text-sm font-medium text-primary-foreground hover:bg-primary/90 transition-colors shadow-xs"
+                  >
+                    <span>View Live Demo</span>
+                    <ArrowUpRight className="size-3.5" aria-hidden="true" />
+                  </a>
+                </div>
+              )}
               <div className="mt-6 flex flex-wrap gap-2">
                 {project.tags.map((tag) => (
                   <span
@@ -98,12 +128,18 @@ export default async function CaseStudy({
           <article className="max-w-3xl space-y-16">
             <section id="overview" className="scroll-mt-24">
               <h2 className="editorial-title text-2xl sm:text-3xl">Project Overview</h2>
+              {project.status && (
+                <div className="mt-4 mb-2 inline-flex items-center gap-2 border border-border/80 bg-accent/20 px-3 py-1.5 rounded-xs text-xs font-mono text-muted-foreground">
+                  <span className="text-primary font-semibold">Project Status:</span>
+                  <span>{project.status}</span>
+                </div>
+              )}
               <p className="mt-5 text-base leading-8 text-muted-foreground">
                 {project.overview}
               </p>
               <div className="mt-8 border-t border-border pt-6">
                 <h3 className="text-xs font-semibold tracking-wider uppercase font-mono text-muted-foreground">
-                  Problem &amp; Business Need
+                  Problem &amp; Context
                 </h3>
                 <p className="mt-3 text-base leading-8 text-foreground/90">
                   {project.problem}
@@ -191,13 +227,26 @@ export default async function CaseStudy({
                 <ArrowLeft className="size-3" aria-hidden="true" />
                 <span>Return to selected work</span>
               </Link>
-              <Link
-                href="/contact"
-                className="text-sm underline decoration-primary decoration-2 underline-offset-4 hover:text-primary transition-colors inline-flex items-center gap-1 font-medium"
-              >
-                <span>Discuss this project</span>
-                <ArrowUpRight className="size-3" aria-hidden="true" />
-              </Link>
+              <div className="flex flex-wrap items-center gap-5">
+                {project.liveUrl && (
+                  <a
+                    href={project.liveUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sm font-medium text-primary underline decoration-primary/50 underline-offset-4 hover:decoration-primary transition-colors inline-flex items-center gap-1"
+                  >
+                    <span>View Live Demo</span>
+                    <ArrowUpRight className="size-3" aria-hidden="true" />
+                  </a>
+                )}
+                <Link
+                  href="/contact"
+                  className="text-sm underline decoration-primary decoration-2 underline-offset-4 hover:text-primary transition-colors inline-flex items-center gap-1 font-medium"
+                >
+                  <span>Discuss this project</span>
+                  <ArrowUpRight className="size-3" aria-hidden="true" />
+                </Link>
+              </div>
             </div>
           </article>
         </div>

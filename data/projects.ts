@@ -22,6 +22,8 @@ export type Project = {
   engineeringAreas: EngineeringArea[]
   challenges: ChallengeSolution[]
   learned: string
+  liveUrl?: string
+  status?: string
 }
 
 export const projects: Project[] = [
@@ -87,6 +89,54 @@ export const projects: Project[] = [
     learned: 'Building and maintaining real-world business applications requires a strong balance between practical frontend UX, dependable API boundaries, and writing maintainable code that can cleanly evolve as client needs change.',
   },
   {
+    slug: 'smart-resort-chatbot',
+    title: 'Smart Resort Chatbot',
+    category: 'Freelance Prototype · Web Application',
+    summary: 'A website-embeddable chatbot concept designed to help resort guests get quick answers about resort services, nearby attractions, and local information.',
+    description: 'A prototype guest-assistance chatbot embeddable via a lightweight script snippet, featuring keyword-based query search and conversation logging for analytics.',
+    tags: ['Next.js', 'Express.js', 'MongoDB', 'Node.js', 'REST APIs', 'Embeddable Widget'],
+    focus: 'Freelance Prototype',
+    liveUrl: 'https://resort-chatbot-swart.vercel.app/',
+    status: 'Freelance Prototype · Not commercially launched',
+    overview: 'A website-embeddable chatbot concept developed to help resort guests receive immediate answers to common questions regarding resort amenities, dining, recreation, nearby attractions, and local travel information. Built as an easily embeddable widget with a supporting backend service.',
+    problem: 'Resort front-desk teams frequently spend time handling repetitive guest inquiries about on-site services, facility timings, and nearby tourist destinations. The goal was to build an embeddable, low-overhead chatbot prototype that resort websites can integrate via a simple script tag without heavy AI infrastructure.',
+    contribution: 'Developed as a freelance project prototype (not commercially launched). Built the end-to-end concept including the embeddable script snippet, the Next.js demo application, the Express.js API for keyword-based search processing, and MongoDB integration for conversation logging.',
+    engineeringAreas: [
+      {
+        title: 'Embeddable Widget & Script Integration',
+        points: [
+          'Engineered a lightweight script snippet allowing any website to embed and configure the chatbot widget with minimal setup.',
+          'Implemented an interactive floating chat button with a responsive dialog optimized for guest mobile and desktop browsers.',
+        ],
+      },
+      {
+        title: 'Backend API & Keyword Search (Express.js)',
+        points: [
+          'Built Express.js REST API endpoints to process guest inquiries with keyword-matching algorithms against resort service data.',
+          'Designed fast query routing to return accurate answers for amenities, check-in details, and local points of interest.',
+        ],
+      },
+      {
+        title: 'Conversation Logging & Analytics Schema (MongoDB)',
+        points: [
+          'Configured MongoDB data models to record conversation histories, inquiry timestamps, and guest question patterns.',
+          'Enabled backend logging to provide operational insights and assist with future knowledge base improvements.',
+        ],
+      },
+    ],
+    challenges: [
+      {
+        challenge: 'Designing a lightweight widget integration that works across arbitrary third-party web pages without layout interference.',
+        solution: 'Encapsulated widget DOM elements and dynamic script loading to ensure clean mounting and prevent style conflicts with host websites.',
+      },
+      {
+        challenge: 'Providing instant, cost-effective responses to guest questions without complex AI dependencies.',
+        solution: 'Implemented structured keyword-matching logic categorized around resort amenities, services, and local tourism inquiries.',
+      },
+    ],
+    learned: 'Developing freelance prototypes highlighted the value of prioritizing simple client integration, fast deterministic responses, and clean API design that can easily scale if commercialized.',
+  },
+  {
     slug: 'service-request-api',
     title: 'Service Request & Workflow API',
     category: 'Backend & API Integration',
@@ -125,6 +175,42 @@ export const projects: Project[] = [
     ],
     learned: 'Consistent API design and defensive validation make consuming frontend interfaces much easier to build, debug, and maintain.',
   },
+  {
+    slug: 'handwritten-prescription-ocr',
+    title: 'Handwritten Prescription OCR',
+    category: 'College Project · In Progress',
+    summary: 'A Python-based OCR project exploring text recognition on handwritten medical prescriptions across varied handwriting samples.',
+    description: 'An experimental Python OCR project started during college and actively being refined to test character recognition on unclear handwritten prescriptions.',
+    tags: ['Python', 'OpenCV', 'Tesseract OCR', 'Image Processing'],
+    focus: 'College Project · In Progress',
+    status: 'In Progress · Experimental College Project',
+    overview: 'This project began during college as an exploration into optical character recognition (OCR) for handwritten medical prescriptions. Currently ongoing, the focus is on testing preprocessing techniques across diverse handwriting samples to evaluate recognition feasibility on difficult-to-read text.',
+    problem: 'Handwritten doctor prescriptions feature cursive, variable penmanship, and varying image quality. Standard OCR systems struggle with unconstrained handwriting without substantial preprocessing and domain-specific adjustments.',
+    contribution: 'Implemented the experimental Python pipeline using OpenCV for image cleanup (thresholding, noise reduction, contour detection) and evaluated text recognition performance across sample sets.',
+    engineeringAreas: [
+      {
+        title: 'Image Preprocessing & Binarization (OpenCV)',
+        points: [
+          'Applied grayscale conversion, adaptive thresholding, and morphological filtering to clean noisy background textures and paper artifacts.',
+          'Tested skew correction and contrast adjustments to improve character edge definitions.',
+        ],
+      },
+      {
+        title: 'OCR Pipeline & Sample Evaluation',
+        points: [
+          'Passed cleaned image segments through OCR engines to evaluate character and word recognition across handwriting styles.',
+          'Cataloged specific failure modes including cursive ligatures, low-contrast ink, and inconsistent stroke widths.',
+        ],
+      },
+    ],
+    challenges: [
+      {
+        challenge: 'Extracting legible character boundaries from irregular cursive strokes without clinical dataset annotations.',
+        solution: 'Experimented with contour-based line segmentation and adaptive thresholding to isolate text regions prior to recognition.',
+      },
+    ],
+    learned: 'Handwritten text recognition on noisy, real-world documents is complex; reliable OCR requires thorough preprocessing pipelines and iterative testing across diverse handwriting samples.',
+  },
 ]
 
 export const getProject = (slug: string) => projects.find((project) => project.slug === slug)
@@ -137,58 +223,79 @@ export const skillGroups = [
   },
   {
     label: 'Backend',
-    skills: ['Node.js', 'Express', 'Python', 'Flask', 'REST APIs', 'JWT'],
+    skills: ['Node.js', 'Express', 'Python', 'Flask', 'REST APIs', 'JWT', 'Firebase'],
   },
   {
     label: 'Databases',
-    skills: ['MySQL', 'PostgreSQL', 'MongoDB'],
+    skills: ['MySQL', 'PostgreSQL', 'MongoDB', 'Firebase'],
   },
   {
-    label: 'Tools and practices',
-    skills: ['Git', 'GitHub', 'API integration', 'Postman', 'Debugging & workflows'],
+    label: 'Tools & Environments',
+    skills: ['Git', 'GitHub', 'VS Code', 'Postman', 'Hoppscotch', 'Dev & QA Deployments', 'Vercel'],
+  },
+  {
+    label: 'AI Agents & Tooling',
+    skills: ['GitHub Copilot', 'Antigravity', 'AI-assisted Workflows'],
   },
   {
     label: 'Currently exploring',
-    skills: ['AWS', 'Docker', 'CI/CD', 'Playwright'],
+    skills: ['AWS', 'Docker', 'CI/CD', 'Linux', 'Bash Scripting', 'Render'],
   },
 ]
 
-export const experience = [
+export type ExperienceItem = {
+  role: string
+  company: string
+  companyUrl?: string
+  period: string
+  type: string
+  overview: string
+  contributions: string[]
+  bullets: string[]
+}
+
+export const experience: ExperienceItem[] = [
   {
     role: 'Software Developer',
     company: 'Neural Schema Pvt. Ltd.',
+    companyUrl: 'https://neuralschemait.com/',
     period: '2025 — Present',
     type: 'Professional Experience',
     overview:
-      'Working as a Software Developer building and maintaining business applications. My responsibilities span full-stack development using React, TypeScript, Node.js, and MySQL, implementing user authentication, integrating third-party shipping APIs, and delivering client-driven features.',
+      'Working as a Software Developer building and maintaining business applications. My responsibilities span full-stack development using React, TypeScript, Node.js, and MySQL, implementing user authentication, integrating third-party shipping APIs, managing Dev & QA deployments, and delivering client-driven features.',
     contributions: [
       'Full-stack application development: Build and maintain web interfaces, backend API routes, and database workflows for internal business applications.',
       'React and TypeScript frontend engineering: Develop responsive, type-safe interfaces for inventory tracking, work-order operations, and day-to-day business workflows with Tailwind CSS.',
       'Node.js APIs and backend workflows: Design and maintain RESTful endpoints with Node.js and MySQL, ensuring structured validation and consistent response formatting.',
       'Authentication and email functionality: Implemented JWT-based authentication, user login, secure password management, and automated email notification features.',
       'Shipping and third-party API integrations: Integrated FedEx shipping and rate calculation services into operational dispatch workflows with defensive error handling.',
+      'Dev & QA environment deployments: Manage feature deployments, environment configurations, and verification across Development (Dev) and QA environments prior to releases.',
       'Client-driven feature development & maintenance: Deliver new features aligned with evolving client requirements, investigate and fix bugs across the stack, and improve overall system maintainability.',
     ],
     bullets: [
       'Build and maintain practical full-stack web applications for operational and business workflows.',
       'Develop frontend interfaces with React, TypeScript, and Tailwind CSS.',
+      'Deploy and verify applications across Dev and QA environments.',
       'Integrate REST APIs, authentication, and third-party logistics services with attention to validation and maintainability.',
     ],
   },
   {
     role: 'Software Development Intern',
     company: 'Neural Schema Pvt. Ltd.',
+    companyUrl: 'https://neuralschemait.com/',
     period: '2024 — 2025',
     type: 'Internship',
     overview:
-      'Built foundational full-stack capabilities by contributing to reusable UI components, API-connected screens, and collaborative defect investigation in a shared codebase.',
+      'Built foundational full-stack capabilities by contributing to reusable UI components, API-connected screens, Firebase backend services, and collaborative defect investigation in a shared codebase.',
     contributions: [
       'Developed reusable React components and assisted in integrating backend REST endpoints under senior guidance.',
-      'Used Git for version control and Postman for API testing across sprint deliverables.',
+      'Utilized Firebase for real-time data persistence, authentication flows, and backend service prototyping.',
+      'Used Git, GitHub, and VS Code for version control along with Postman and Hoppscotch for API testing across sprint deliverables.',
       'Participated in defect triage, UI styling fixes, and cross-browser testing for internal tools.',
     ],
     bullets: [
-      'Contributed to frontend features and API-connected screens under guidance.',
+      'Contributed to frontend features, Firebase services, and API-connected screens under guidance.',
+      'Tested endpoints and workflows using Postman and Hoppscotch in VS Code.',
       'Learned to debug across browser, server, and database boundaries.',
       'Worked with Git, Postman, and shared team development workflows.',
     ],
@@ -252,7 +359,7 @@ export const threePrinciples = [
 export const techStack = ['React', 'Next.js', 'TypeScript', 'Node.js', 'Tailwind CSS', 'REST APIs', 'MySQL']
 export const maxMessageLength = 1200
 export const formNote = 'This form opens your email client with your note prefilled. No personal form data is stored on this site.'
-export const siteUrl = 'https://udhayapooja.dev'
+export const siteUrl = 'https://portfolio-zeta-nine-cc8sh4g2ke.vercel.app'
 export const role = 'Full Stack Developer'
 export const location = 'Tamil Nadu, India'
 export const education = 'B.E. Computer Science and Engineering'

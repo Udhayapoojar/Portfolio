@@ -15,7 +15,7 @@ export function ProjectIndex({ projects, compact = false }: ProjectIndexProps) {
         return (
           <article
             key={project.slug}
-            className={`grid gap-6 border-b border-border py-8 last:border-b-0 sm:grid-cols-[4rem_minmax(0,1fr)_10rem] sm:gap-8 ${
+            className={`grid gap-6 border-b border-border py-8 last:border-b-0 sm:grid-cols-[4rem_minmax(0,1fr)_11.5rem] sm:gap-8 ${
               featured ? 'bg-accent/25 py-10 pl-4 sm:py-12 sm:pl-6 rounded-sm' : ''
             }`}
           >
@@ -41,13 +41,26 @@ export function ProjectIndex({ projects, compact = false }: ProjectIndexProps) {
                 ))}
               </div>
             </div>
-            <Link
-              href={`/projects/${project.slug}`}
-              className="self-end text-sm font-medium text-foreground underline decoration-border underline-offset-4 transition-[text-decoration-color,color] hover:text-primary hover:decoration-primary sm:self-center inline-flex items-center gap-1"
-            >
-              <span>Case study</span>
-              <ArrowUpRight className="size-3.5" aria-hidden="true" />
-            </Link>
+            <div className="flex flex-wrap items-center gap-3 self-end sm:flex-col sm:items-end sm:justify-center sm:self-center">
+              {project.liveUrl && (
+                <a
+                  href={project.liveUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 rounded-xs bg-primary px-3 py-1.5 text-xs font-medium text-primary-foreground hover:bg-primary/90 transition-colors shadow-xs"
+                >
+                  <span>View Live Demo</span>
+                  <ArrowUpRight className="size-3.5" aria-hidden="true" />
+                </a>
+              )}
+              <Link
+                href={`/projects/${project.slug}`}
+                className="text-sm font-medium text-foreground underline decoration-border underline-offset-4 transition-[text-decoration-color,color] hover:text-primary hover:decoration-primary inline-flex items-center gap-1"
+              >
+                <span>Case study</span>
+                <ArrowUpRight className="size-3.5" aria-hidden="true" />
+              </Link>
+            </div>
           </article>
         )
       })}

@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     template: `%s | Udhaya Pooja R.`,
   },
   description: pageDescription,
-  metadataBase: new URL('https://udhayapooja.dev'),
+  metadataBase: new URL('https://udhayapooja-portfolio.vercel.app/'),
   icons: {
     icon: '/icon.svg',
   },

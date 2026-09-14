@@ -42,7 +42,19 @@ export default function ExperiencePage() {
                   <div className="space-y-6">
                     <div>
                       <h2 className="editorial-title text-2xl sm:text-3xl text-foreground">{item.role}</h2>
-                      <p className="mt-1 text-base font-medium text-foreground/85">{item.company}</p>
+                      {item.companyUrl ? (
+                        <a
+                          href={item.companyUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="mt-1 inline-flex items-center gap-1 text-base font-medium text-foreground/85 hover:text-primary transition-colors underline decoration-border/80 underline-offset-4 hover:decoration-primary group"
+                        >
+                          <span>{item.company}</span>
+                          <ArrowUpRight className="size-3.5 text-muted-foreground group-hover:text-primary transition-colors" aria-hidden="true" />
+                        </a>
+                      ) : (
+                        <p className="mt-1 text-base font-medium text-foreground/85">{item.company}</p>
+                      )}
                     </div>
 
                     <p className="text-base leading-7 text-muted-foreground">

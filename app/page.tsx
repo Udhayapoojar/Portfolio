@@ -64,15 +64,26 @@ export default function Page() {
             <p className="eyebrow text-primary font-bold">Currently</p>
             <ul className="mt-4 grid gap-3 leading-6 text-base w-full">
               <li className="flex items-start gap-2">
-                <span className="text-primary font-mono text-xs mt-1">▸</span>
-                <span>Software Developer at Neural Schema Pvt. Ltd.</span>
+                <span className="text-primary font-mono text-xs mt-1 shrink-0">▸</span>
+                <span>
+                  Software Developer at{' '}
+                  <a
+                    href="https://neuralschemait.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-medium text-foreground underline decoration-border/80 underline-offset-4 hover:text-primary hover:decoration-primary transition-colors inline-flex items-center gap-0.5"
+                  >
+                    <span>Neural Schema Pvt. Ltd.</span>
+                    <ArrowUpRight className="size-3 text-muted-foreground inline" aria-hidden="true" />
+                  </a>
+                </span>
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-primary font-mono text-xs mt-1">▸</span>
+                <span className="text-primary font-mono text-xs mt-1 shrink-0">▸</span>
                 <span>Building inventory &amp; work-order systems.</span>
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-primary font-mono text-xs mt-1">▸</span>
+                <span className="text-primary font-mono text-xs mt-1 shrink-0">▸</span>
                 <span>Based in Tamil Nadu, India.</span>
               </li>
             </ul>
@@ -85,23 +96,43 @@ export default function Page() {
             title="A practical approach to software."
             description={aboutCopy}
           />
-          <div className="mt-12 grid gap-12 lg:grid-cols-[.75fr_1.25fr]">
-            <dl className="grid gap-5 text-sm sm:grid-cols-2 lg:grid-cols-1">
-              {profileFacts.map(([label, value]) => (
-                <div key={label} className="grid grid-cols-[8rem_1fr] gap-3 border-b border-border/50 pb-3 last:border-b-0">
-                  <dt className="text-muted-foreground font-mono text-xs uppercase tracking-wider pt-0.5">{label}</dt>
-                  <dd className="text-foreground font-medium">{value}</dd>
-                </div>
-              ))}
+          <div className="mt-12 grid gap-10 lg:grid-cols-[.85fr_1.15fr] lg:gap-14 items-start">
+            <dl className="grid gap-3.5 text-sm">
+              {profileFacts.map(([label, value]) => {
+                const isCompany = label === 'Company'
+                return (
+                  <div
+                    key={label}
+                    className="grid grid-cols-[6.5rem_1fr] sm:grid-cols-[7.5rem_1fr] gap-3 items-baseline border-b border-border/50 pb-3 last:border-b-0"
+                  >
+                    <dt className="text-muted-foreground font-mono text-xs uppercase tracking-wider">{label}</dt>
+                    <dd className="text-foreground font-medium">
+                      {isCompany ? (
+                        <a
+                          href="https://neuralschemait.com/"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1 underline decoration-border/80 underline-offset-4 hover:text-primary hover:decoration-primary transition-colors"
+                        >
+                          <span>{value}</span>
+                          <ArrowUpRight className="size-3 text-muted-foreground shrink-0" aria-hidden="true" />
+                        </a>
+                      ) : (
+                        value
+                      )}
+                    </dd>
+                  </div>
+                )
+              })}
             </dl>
-            <div className="grid gap-8 sm:grid-cols-2">
+            <div className="grid gap-6 sm:grid-cols-2">
               {skillGroups.map((group) => (
                 <div key={group.label} className="border-t border-border pt-4">
                   <h3 className="text-sm font-serif text-foreground font-medium">{group.label}</h3>
-                  <div className="mt-3 flex flex-wrap gap-2">
+                  <div className="mt-2.5 flex flex-wrap gap-1.5 sm:gap-2">
                     {group.skills.map((skill) => (
                       <span
-                        className="font-mono text-xs text-muted-foreground bg-accent/30 border border-border/60 px-2 py-0.5 rounded-sm"
+                        className="font-mono text-xs text-muted-foreground bg-accent/30 border border-border/60 px-2 py-0.5 rounded-xs"
                         key={skill}
                       >
                         {skill}
@@ -148,7 +179,19 @@ export default function Page() {
                   <div className="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between">
                     <div>
                       <h3 className="text-2xl font-serif text-foreground">{item.role}</h3>
-                      <p className="mt-1 text-sm font-medium text-foreground/85">{item.company}</p>
+                      {item.companyUrl ? (
+                        <a
+                          href={item.companyUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="mt-1 inline-flex items-center gap-1 text-sm font-medium text-foreground/85 hover:text-primary transition-colors underline decoration-border/80 underline-offset-4 hover:decoration-primary group"
+                        >
+                          <span>{item.company}</span>
+                          <ArrowUpRight className="size-3 text-muted-foreground group-hover:text-primary transition-colors" aria-hidden="true" />
+                        </a>
+                      ) : (
+                        <p className="mt-1 text-sm font-medium text-foreground/85">{item.company}</p>
+                      )}
                     </div>
                   </div>
                   <p className="mt-4 max-w-2xl text-sm leading-6 text-muted-foreground">
